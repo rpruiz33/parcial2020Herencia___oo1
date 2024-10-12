@@ -34,12 +34,12 @@ public List <Mercancia> traerMercancia(boolean enOferta) {
 	List<Mercancia> mercancias=new ArrayList<Mercancia>();
 	for (int i=0; i<lstMercancia.size();i++) {
 			if(lstMercancia.get(i)instanceof Servicio) {
-			if(((Servicio)lstMercancia.get(i)).isEnPromocion()) {
+			if(((Servicio)lstMercancia.get(i)).isEnPromocion()&& enOferta==true) {
 				mercancias.add(lstMercancia.get(i));
 			}
 			}
 			if(lstMercancia.get(i)instanceof Producto) {
-			if(((Producto)lstMercancia.get(i)).isEsDescuentoEn2daUnidad()) {
+			if(((Producto)lstMercancia.get(i)).isEsDescuentoEn2daUnidad()&&enOferta==true) {
 				mercancias.add(lstMercancia.get(i));
 			}
 		}
