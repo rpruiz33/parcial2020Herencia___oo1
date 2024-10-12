@@ -11,6 +11,8 @@ public void setCodMercancia(String codMercancia) throws Exception {
 	 if(codMercancia.length()!=7) {
 			throw new Exception("tiene diferente de 7");
 	 }
+	 this.codMercancia=codMercancia;
+			 
 }
 
 public Mercancia(String codMercancia) throws Exception {
@@ -18,8 +20,6 @@ public Mercancia(String codMercancia) throws Exception {
 	setCodMercancia(codMercancia);
 }
 
-abstract double calcularPrecioFinal();
-public boolean equals(String codigo) {
-	return  this.codMercancia.equals(codigo);
-}
+public abstract double calcularPrecioFinal();
+
 }

@@ -42,10 +42,18 @@ public double calcularPrecioFinal() {
 	double finalP=0;
 	if(this.isEsDescuentoEn2daUnidad()) {
 		finalP=this.precioProducto*(this.porcentajeDescuento/2);
+	}else {
+		finalP=this.precioProducto ;
 	}
 	return finalP;
 }
 
+@Override
+public String toString() {
+	return "\nProducto [producto=" + producto + ", precioProducto=" + precioProducto + ", porcentajeDescuento="
+			+ porcentajeDescuento + ", esDescuentoEn2daUnidad=" + esDescuentoEn2daUnidad + ", codMercancia="
+			+ codMercancia + "]";
+}
 public boolean equals(String codigo) {
 	return  this.getCodMercancia().equals(codigo);
 }

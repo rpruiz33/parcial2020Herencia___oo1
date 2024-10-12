@@ -21,10 +21,12 @@ public Sistema() {
 public Mercancia traerMercancia(String CodMercancia) {
 	Mercancia merca=null;
 	int i=0;
-	while(i<lstMercancia.size() && merca==null) {
-		if(lstMercancia.get(i).getCodMercancia()!=null&&lstMercancia.get(i).getCodMercancia().equalsIgnoreCase(CodMercancia)) {
+	while(i<lstMercancia.size()&&merca==null ) {
+		if(lstMercancia.get(i).getCodMercancia()!=null&&lstMercancia.get(i).getCodMercancia().equals(CodMercancia)) {
 			merca=lstMercancia.get(i);
+			
 		}
+		i++;
 	}
 	return merca;
 }
@@ -57,24 +59,26 @@ public boolean agregarProducto(String codMercancia, String producto, double prec
 		lstMercancia.add( new Producto(codMercancia, producto,  precioProducto,  porcentajeDescuento,esDescuentoEn2daUnidad));
 		flag=true;
 		}
+	else {
+		throw new Exception("YA EXISTE");
+	}
 	
-	flag=true;
+
 	return flag;
 }
 
 public boolean agregarServicio(String codMercancia, String servicio, double presupuesto, double porcentajeDescuento, boolean enPromocion) throws Exception {
-	boolean flag=false;
+
 	Mercancia mercancia=null;
 	mercancia=(Servicio)traerMercancia(codMercancia);
-	if(mercancia!=null) {
-		throw new Exception("YA EXISTE");
+	if(mercancia==null) {
+		return	lstMercancia.add( new Servicio(codMercancia, servicio, presupuesto, porcentajeDescuento, enPromocion));
+	
 		}
 
-		
-		lstMercancia.add( new Servicio(codMercancia, servicio, presupuesto, porcentajeDescuento, enPromocion));
-		flag=true;
+	throw new Exception("YA EXISTE");
 	
-	return flag;
+
 	
 	}
 	

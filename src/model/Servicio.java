@@ -43,8 +43,15 @@ double finalP=0;
 if(enPromocion) {
 	finalP=presupuesto*porcentajeDescuento;
 	
+}else {
+finalP=presupuesto;
 }
 return finalP;
+}
+@Override
+public String toString() {
+	return "\nServicio [servicio=" + servicio + ", presupuesto=" + presupuesto + ", porcentajeDescuento="
+			+ porcentajeDescuento + ", enPromocion=" + enPromocion + ", codMercancia=" + codMercancia + "]";
 }
 
 
